@@ -1,0 +1,133 @@
+\documentclass{beamer}
+\usetheme{Berkeley}
+ 
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+ 
+ 
+%Information to be included in the title page:
+\title{Solvability By Radicals}
+\author{Robert Sweeney Blanco}
+\institute{Advisor: Brandon Williams}
+\date{December 5, 2017}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Linear and Quadratic Equations}
+Pretty straightforward...\\ 
+\vspace{1cm}
+$ax + b = 0 \Rightarrow x = \frac{-b}{a}$\\
+\vspace{1cm}
+$ax^2+bx+c=0 \Rightarrow x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$
+\end{frame}
+
+\begin{frame}
+\frametitle{Is there a cubic equation? What about a quartic equation? Is there a limit?}
+The answer for all these questions is yes. Both the cubic and quartic  were eventually found and published by the 16th century mathematician Niccolo Tartaglia, although it is unclear if he was the first to do it. However, there does not exist a generalized formula for the quintic and polynomials of higher degrees. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Some definitions}
+\begin{block}{Splitting Field}
+Let $K$ be a subfield of $\mathbb{C}$ and $p \in K[x]$ be a nonzero polynomial. The splitting field over $K$ of $p$ is $L=K(\alpha_1, \alpha_2,...,\alpha_n)$ where $\{\alpha_i\}$ is the set of roots for $p$.\\
+\end{block}
+\begin{block}{Galois Group}
+If $L$ is a field extension of $K$, $Gal(L/K) = \{g \in Aut(L) | g(k)=k \ \forall k \in K \} $
+\end{block}
+\begin{block}{Fixed Field}
+If $L$ is a field extension of $K$, a subfield of $\mathbb{C}$, and $H$ is a subgroup of $Gal(L/K)$, $Fix(H) = \{l \in L | g(l)=l \ \forall g \in H\}$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Galois Correspondence}
+\begin{block}{Correspondence 1}
+Subgroups of $Gal(L/K)$ and intermediate fields of $L/K$ correspond in a one to one fashion.
+\end{block}
+\begin{block}{Correspondence 2}
+The normal subgroup of $Gal(L/K)$ correspond to intermediate fields of $L/K$ that are splitting fields.
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Example}
+\includegraphics[scale=1]{../../Desktop/galoiscorrespondence.png} 
+ \end{frame}
+ 
+ \begin{frame}
+\frametitle{Solvability by Radicals}
+\begin{block}{Radical Extension}
+A radical extension $K$ of a field $F$ is a field that may be written $K=F(a_1,...,a_m)$ with $a_i^{n_i} \in F(a_1,...,a_{i-1})$ for $1 \leq i \leq m$ and $n_i \in \mathbb{N}$\\
+\end{block}
+\begin{block}{Solvable by Radicals}
+Let $F$ be a subfield of $\mathbb{C}$ and $p \in F[x]$ an irreducible polynomial. Then $p$ is solvable by radicals over $F$ if each root $a$ of $p$ lies in a radical extension of $F$.
+\end{block}
+ \end{frame}
+ 
+  \begin{frame}
+\frametitle{Tower of Field Extensions}
+Suppose $L$ is a splitting field and a radical extension of $F$ with a particular representation as a radical extension using $b_i$ for $i=1,...,m$ with corresponding exponents $n_i$. Let $n=lcm(\{n_i\})$ and $\omega$ be a primitive nth root of unity. Then $L(\omega)/F$ is a splitting field extension, which has the following tower of field extensions:
+$$F \subset F(\omega) \subset F(\omega, b_1) \subset ... \subset F(\omega, b_1, ... , b_m) = L(\omega)$$
+ \end{frame}
+ 
+  \begin{frame}
+\frametitle{Solvable Subgroups}
+Define $G_i=Gal(L(\omega)/F(\omega, b_1, ..., b_i))$, which gives the following tower of subgroups:
+$$Gal(L(\omega)/F(\omega)) \supset G_1  \supset ... \supset G_m = \{e\}$$
+$G_{i+1}$ is normal in $G_i$ and $G_i/G_{i+1}$ is abelian.
+\begin{block}{Solvable Groups}
+A finite group is solvable if there exists a tower of subgroups such that $G_{i+1}$ is normal in $G_i$ and $G_i/G_{i+1}$ is abelian. 
+\end{block}
+ \end{frame}
+ 
+ \begin{frame}
+\frametitle{TFAE}
+Let $F$ be a subfield of $\mathbb{C}$, and $p \in F[X]$ be an irreducible polynomial. Let $L$ be the splitting field of $p$ over $F$. The following are equivalent:
+\begin{enumerate}
+\item Some root of $p$ lies in a radical extension of $F$
+\item There is a radical extension of $F$ containing all the roots of $p$
+\item $p$ is solvable by radicals
+\item $Gal(L/F)$ is a solvable group
+\end{enumerate}
+ \end{frame}
+ 
+  \begin{frame}
+\frametitle{Insolvability of the Quintic}
+Let $p(x)=x^5+20x+16$, if we can show that the galois group of the splitting field of $p$ over $\mathbb{Q}$ is not solvable, then $p$ is not solvable by radicals.
+ \end{frame}
+ 
+   \begin{frame}
+\frametitle{Lemma}
+\begin{block}{Discriminant}
+Let $p$ be a monic polynomial with roots $\alpha_1,...,\alpha_n$. $disc(p) = (\displaystyle \prod_{1 \leq i < j \leq n} (\alpha_i - \alpha_j))^2 =(-1)^{\frac{n(n-1)}{2}} Res_x(p,p')$
+\end{block}
+
+Lemma: If $p \in K[x]$ has degree $n$, the following are equivalent: 
+\begin{enumerate}
+\item  $disc(p)$ is the square of an element in $K$
+\item $x^2-disc(p)$ has a linear factor over $K$
+\item $Gal(p,K) \subset A_n$
+\end{enumerate}
+ \end{frame}
+ 
+   \begin{frame}
+\frametitle{Properties of Alternating Groups}
+\begin{enumerate}
+\item  $A_n$ is abelian iff $n \leq 3$\\
+\item $A_n$ is simple iff $n=3$ or $n \geq 5$
+\item $A_5$ has order 60, making it the smallest non-abelian simple group
+\end{enumerate}
+ \end{frame}
+ 
+ \begin{frame}
+ \frametitle{Proof}
+ $(-1)^{10}Res_x(x^5+20x+16, 5x^4+20)=1,024,000,000=(32,000)^2$, thus by the lemma $Gal(p,K) \subseteq A_5$. It can be shown that $|Gal(p,K)| = 60$, thus $Gal(p,K) = A_5$. Since $A_5$ is simple, $Gal(p, K)$ is not a solvable group. Thus $p$ is not solvable by radicals. 
+ \end{frame}
+ 
+\end{document}
