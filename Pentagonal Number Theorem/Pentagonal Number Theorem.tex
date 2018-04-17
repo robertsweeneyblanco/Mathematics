@@ -1,0 +1,49 @@
+\documentclass{beamer}
+\usetheme{Berkeley}
+ 
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath} %piecewise function%
+ 
+ 
+%Information to be included in the title page:
+\title{Modular Forms}
+\author{Robert Sweeney Blanco}
+\institute{Advisor: Brandon Williams}
+\date{December 5, 2017}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Defining Modular Forms}
+In this presentation, I will be working with the modular group $SL_2(\mathbb{Z}) = \Gamma_1$
+\begin{block}{Definition: Modular form}
+$f$ is a modular form of weight $k$ if 
+\begin{enumerate}
+\item  f is holomorphic on $\mathbb{H}$\\
+\item f continues to be holomorphic as $z \longrightarrow i\infty$
+\item $f(\frac{az+b}{cz+d}) = (cz+d)^k f(z) \  \ \ \forall \begin{bmatrix}
+a & b \\
+c & d \\
+\end{bmatrix} \in \Gamma_1$
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dimension of $M_k(\Gamma_1)$}
+Modular forms of a fixed weight form a vector space over the Complex numbers. The dimension of $M_k(\Gamma_1)$ is $0$ for all negative and odd values of $k$. Otherwise the dimension is given by the following formula:
+\[   
+dim(M_k(\Gamma_1)) = 
+     \begin{cases}
+       \lfloor \frac{k}{12} \rfloor + 1 & \quad \text{if} \  k \not \equiv  12 \ mod(12) \\
+       \lfloor \frac{k}{12} \rfloor & \quad \text{if} \  k \equiv  12 \ mod(12) \\
+     \end{cases}
+\]
+\end{frame}
+
+\end{document}
