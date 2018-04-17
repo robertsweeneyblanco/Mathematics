@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}The Resultant}{1}
+\contentsline {section}{\numberline {3}Irreducibility over $\mathbb {Q}$}{2}
+\contentsline {section}{\numberline {4}Irreducibility over finite fields}{3}
+\contentsline {section}{\numberline {5}Minimal polynomials of roots}{5}
+\contentsline {section}{\numberline {6}Minimal polynomials of sums}{5}
+\contentsline {section}{\numberline {7}Minimal polynomials of quotients and products}{6}
+\contentsline {section}{\numberline {8}Summary}{7}
