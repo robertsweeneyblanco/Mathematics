@@ -10,7 +10,7 @@
 \title{Modular Forms}
 \author{Robert Sweeney Blanco}
 \institute{Advisor: Brandon Williams}
-\date{December 5, 2017}
+\date{May 9, 2018}
  
  
  
@@ -18,6 +18,7 @@
  
 \frame{\titlepage}
  
+ %Defining Modular Forms%
 \begin{frame}
 \frametitle{Defining Modular Forms}
 In this presentation, I will be working with the modular group $SL_2(\mathbb{Z}) = \Gamma_1$
@@ -35,6 +36,7 @@ c & d \\
 \end{block}
 \end{frame}
 
+%Simplifying the full Modular Group%
 \begin{frame}
 \frametitle{Simplifying the full Modular Group}
 \begin{block}{Theorem}
@@ -50,6 +52,7 @@ and $T = \begin{bmatrix}
 This simplifies proving a function is a modular form when working with the full modular group because now we only need to check that the desired behavior for composition with Mobius transformations from the matrix group works for the transformations corresponding with $S$ and $T$. That is $S(z)=f(\frac{-1}{z}) = z^kf(z)$ and $T(z)=f(z+1)=f(z)$. Note this means modular forms are periodic and have Fourier series!
 \end{frame}
 
+%Dimension Formula%
 \begin{frame}
 
 \frametitle{Dimension of $M_k(\Gamma_1)$}
@@ -79,25 +82,54 @@ This series converges absolutely for $k>2$.
 \begin{frame}
 \frametitle{Transformation under $T$}
 
-$$G_k(\tau + 1) = \sum_{(m,n) \in \mathbb{Z}^2/(0,0)}  \frac{1}{(m (\tau +1) + n)^k}$$\\
-$$ = \sum_{(m,n) \in \mathbb{Z}^2/(0,0)}  \frac{1}{(m \tau + m +  n)^k}$$ \\
+\begin{align*}
+G_k(\tau + 1) &= \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m (\tau +1) + n)^k} \\
+& = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m \tau + m +  n)^k} 
+\end{align*}
 Define $\mu=m+n$ (Note $(m,n) \neq (0,0) \Rightarrow (m, \mu) \neq (0,0)$) \\
-$$=  \sum_{(m,\mu) \in \mathbb{Z}^2/(0,0)}  \frac{1}{(m \tau + \mu)^k} = G_k(\tau)$$
-
+$$=  \sum_{\substack{(m,\mu) \in \mathbb{Z}^2 \\ (m,\mu) \neq (0,0)}}  \frac{1}{(m \tau + \mu)^k} = G_k(\tau)$$
 
 
 \end{frame}
 
+%Proving Eisenstein Series transforms under S%
+\begin{frame}
+\frametitle{Transformation under $S$}
+
+\begin{align*}
+G_k \left( \frac{-1}{\tau} \right) &= \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m (\frac{-1}{\tau}) + n)^k} \\
+&= \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{\tau^k}{(-m + n \tau)^k} = \tau^k \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(-m + n \tau)^k}
+\end{align*}
+
+\begin{align*}
+\text{Define} (\mu, \eta) = (n, -m) (\text{Note} (m,n) \neq (0,0) \Rightarrow (\mu, \eta) \neq (0,0)) 
+\end{align*}
+
+\begin{align*}
+= \tau^k \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(\mu \tau + \eta)^k} = \tau^k G_k(\tau)
+\end{align*}
+
+\end{frame}
+
+%Proving Eisenstein Series satisfy growth condition%
+\begin{frame}
+\frametitle{Proving the Growth Condition}
+$$\lim_{\Im(\tau) \to \infty} \sum_{(m,n) \in \mathbb{Z}^2 \backslash (0,0)}  \frac{1}{(m \tau + n)^k}$$ 
+$$= \lim_{\Im(\tau) \to \infty} \sum_{n \in \mathbb{Z}/ \{0\} } \frac{1}{n^k} + \sum_{\substack{m \in \mathbb{Z}/\{0\} \\ n \in \mathbb{Z}}}  \frac{1}{(m \tau + n)^k}$$
+$$ = \sum_{n \in \mathbb{Z}/\{0\}} \frac{1}{n^k} $$
+\end{frame}
+
 %Proving Eisenstein Series are modular forms%
 \begin{frame}
-
+\frametitle{Proof Conclusion}
 \begin{enumerate}
 \item Since the series converges uniformly on any compact subset of $\mathbb{H}$, it is holomorphic
 \item The series transforms properly for $S$ and $T$ $\Rightarrow$ satisfies Modularity Condition
-
-
- 
+\item The series satisfies the growth condition
 \end{enumerate}
+
+
+$\therefore$ $G_k$ is a modular form for $k > 2$. Moreover, it is a modular form of weight $k$.
 
 \end{frame}
 
