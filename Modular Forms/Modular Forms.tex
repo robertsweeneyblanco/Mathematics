@@ -108,9 +108,11 @@ $$=  \sum_{\substack{(m,\mu) \in \mathbb{Z}^2 \\ (m,\mu) \neq (0,0)}}  \frac{1}{
 %Proving Eisenstein Series satisfy growth condition%
 \begin{frame}
 \frametitle{Proving the Growth Condition}
-$$\lim_{\Im(\tau) \to \infty} \sum_{(m,n) \in \mathbb{Z}^2 \backslash (0,0)}  \frac{1}{(m \tau + n)^k}$$ 
-$$= \lim_{\Im(\tau) \to \infty} \sum_{n \in \mathbb{Z}/ \{0\} } \frac{1}{n^k} + \sum_{\substack{m \in \mathbb{Z}/\{0\} \\ n \in \mathbb{Z}}}  \frac{1}{(m \tau + n)^k}$$
-$$ = \sum_{n \in \mathbb{Z}/\{0\}} \frac{1}{n^k} $$
+\begin{align*}
+& \lim_{\Im(\tau) \to \infty} \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m \tau + n)^k} \\
+& = \lim_{\Im(\tau) \to \infty} \left[ \sum_{\substack{n \in \mathbb{Z} \\ n \neq 0}} \frac{1}{n^k} + \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ m \neq 0}}  \frac{1}{(m \tau + n)^k} \right] \\
+& = \sum_{\substack{n \in \mathbb{Z} \\ n \neq 0}} \frac{1}{n^k} 
+\end{align*}
 \end{frame}
 
 %Proving Eisenstein Series are modular forms%
