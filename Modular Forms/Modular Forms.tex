@@ -23,10 +23,10 @@
 \frametitle{Defining Modular Forms}
 In this presentation, I will be working with the modular group $SL_2(\mathbb{Z}) = \Gamma_1$
 \begin{block}{Definition: Modular form}
-$f$ is a modular form of weight $k$ if 
+$f(z)$ is a modular form of weight $k$ if 
 \begin{enumerate}
 \item  f is holomorphic on $\mathbb{H}$\\
-\item f continues to be holomorphic as $z \longrightarrow i\infty$
+\item f continues to be holomorphic as $\Im(z) \longrightarrow \infty$
 \item $f(\frac{az+b}{cz+d}) = (cz+d)^k f(z) \  \ \ \forall \begin{bmatrix}
 a & b \\
 c & d \\
@@ -60,8 +60,8 @@ Modular forms of a fixed weight form a vector space over the Complex numbers. Th
 \[   
 dim(M_k(\Gamma_1)) = 
      \begin{cases}
-       \lfloor \frac{k}{12} \rfloor + 1 & \quad \text{if} \  k \not \equiv  12 \ mod(12) \\
-       \lfloor \frac{k}{12} \rfloor & \quad \text{if} \  k \equiv  12 \ mod(12) \\
+       \lfloor \frac{k}{12} \rfloor + 1 & \quad \text{if} \  k \not \equiv  2 \ mod(12) \\
+       \lfloor \frac{k}{12} \rfloor & \quad \text{if} \  k \equiv  2 \ mod(12) \\
      \end{cases}
 \]
 \end{frame}
@@ -72,7 +72,7 @@ dim(M_k(\Gamma_1)) =
 \frametitle{Defining Eisenstein Series}
 There are different ways of defining the Eisenstein Series, but they all differ by a constant. Here is a common definition for series of even weight $k>2$: 
 \begin{block}{Eisenstein Series}
-$$G_k(\tau) = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m \tau + n)^k}$$
+$$G_k(z) = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m z + n)^k}$$
 \end{block}
 This series converges absolutely for $k>2$.
 
@@ -83,11 +83,11 @@ This series converges absolutely for $k>2$.
 \frametitle{Transformation under $T$}
 
 \begin{align*}
-G_k(\tau + 1) &= \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m (\tau +1) + n)^k} \\
-& = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m \tau + m +  n)^k} 
+& G_k(z+ 1) = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m (z+1) + n)^k} \\
+& = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m z+ m +  n)^k} \\
+& \text{Define } \mu=m+n \ (\text{Note } (m,n) \neq (0,0) \Rightarrow (m, \mu) \neq (0,0)) \\
+& =  \sum_{\substack{(m,\mu) \in \mathbb{Z}^2 \\ (m,\mu) \neq (0,0)}}  \frac{1}{(m z+ \mu)^k} = G_k(z)
 \end{align*}
-Define $\mu=m+n$ (Note $(m,n) \neq (0,0) \Rightarrow (m, \mu) \neq (0,0)$) \\
-$$=  \sum_{\substack{(m,\mu) \in \mathbb{Z}^2 \\ (m,\mu) \neq (0,0)}}  \frac{1}{(m \tau + \mu)^k} = G_k(\tau)$$
 
 
 \end{frame}
@@ -97,10 +97,10 @@ $$=  \sum_{\substack{(m,\mu) \in \mathbb{Z}^2 \\ (m,\mu) \neq (0,0)}}  \frac{1}{
 \frametitle{Transformation under $S$}
 
 \begin{align*}
-&G_k \left( \frac{-1}{\tau} \right) = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m (\frac{-1}{\tau}) + n)^k} \\
-&= \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{\tau^k}{(-m + n \tau)^k} = \tau^k \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(-m + n \tau)^k} \\
+&G_k \left( \frac{-1}{z} \right) = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m (\frac{-1}{z}) + n)^k} \\
+&= \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{z^k}{(-m + n z)^k} = z^k \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(-m + n z)^k} \\
 & \text{Define} (\mu, \eta) = (n, -m) (\text{Note} (m,n) \neq (0,0) \Rightarrow (\mu, \eta) \neq (0,0)) \\
-& = \tau^k \sum_{\substack{(\mu, \eta) \in \mathbb{Z}^2 \\ (\mu, \eta) \neq (0,0)}}  \frac{1}{(\mu \tau + \eta)^k} = \tau^k G_k(\tau)
+& = z^k \sum_{\substack{(\mu, \eta) \in \mathbb{Z}^2 \\ (\mu, \eta) \neq (0,0)}}  \frac{1}{(\mu z + \eta)^k} = z^k G_k(z)
 \end{align*}
 
 \end{frame}
@@ -109,9 +109,9 @@ $$=  \sum_{\substack{(m,\mu) \in \mathbb{Z}^2 \\ (m,\mu) \neq (0,0)}}  \frac{1}{
 \begin{frame}
 \frametitle{Proving the Growth Condition}
 \begin{align*}
-& \lim_{\Im(\tau) \to \infty} \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m \tau + n)^k} \\
-& = \lim_{\Im(\tau) \to \infty} \left[ \sum_{\substack{n \in \mathbb{Z} \\ n \neq 0}} \frac{1}{n^k} + \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ m \neq 0}}  \frac{1}{(m \tau + n)^k} \right] \\
-& = \sum_{\substack{n \in \mathbb{Z} \\ n \neq 0}} \frac{1}{n^k} 
+& \lim_{\Im(z) \to \infty} \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m z + n)^k} \\
+& = \lim_{\Im(z) \to \infty} \left[ \sum_{\substack{n \in \mathbb{Z} \\ n \neq 0}} \frac{1}{n^k} + \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ m \neq 0}}  \frac{1}{(m z + n)^k} \right] \\
+& = \sum_{\substack{n \in \mathbb{Z} \\ n \neq 0}} \frac{1}{n^k} = 2 \sum_{\substack{n \in \mathbb{N} \\ n \neq 0}} \frac{1}{n^k}  = 2\zeta(k)
 \end{align*}
 \end{frame}
 
@@ -127,6 +127,48 @@ $$=  \sum_{\substack{(m,\mu) \in \mathbb{Z}^2 \\ (m,\mu) \neq (0,0)}}  \frac{1}{
 
 $\therefore$ $G_k$ is a modular form for $k > 2$. Moreover, it is a modular form of weight $k$.
 
+\end{frame}
+
+%Fourier Expansion of Eisenstein Series%
+\begin{frame}
+\frametitle{Fourier Expansion for Eisenstein Series}
+Since Eisenstein Series for even $k>2$ are modular forms, they have a unique Fourier expansion. 
+\begin{block}{Fourier Definition of Eisenstein Series}
+$$E_k(z) = 1 - \frac{2k}{B_k} \sum_{d,n \geq 1} n^{k-1} e^{nd2\pi iz} $$\\
+Where $B_k$ is the $k$th Bernoulli number.
+\end{block}
+\end{frame}
+
+%Eisenstein Identities%
+\begin{frame}
+\frametitle{Eisenstein Identities}
+The set of modular forms $M_{*}(\Gamma_1)$ form a ring. Moreover, the weight of the product of  modular forms is the sum of their weights. This paves the way for several easy identities: \\
+\begin{enumerate}
+\item $E_4^2$ is a modular form of weight $8$, both $E_4^2$ and $E_8$ have Fourier series that start with 1, and $dim(M_8(\Gamma_1)) = 1 \Rightarrow E_4^2 \equiv E_8$  
+\item  $E_4 \cdot E_6$ is a modular form of weight 10, the product of their Fourier series has a leading term of 1, and $dim(M_{10}(\Gamma_1)) = 1 \Rightarrow E_4 \cdot E_6 \equiv E_{10}$
+\end{enumerate}
+\end{frame}
+
+%Definition of the Discriminant function%
+\begin{frame}
+\frametitle{Discriminant Function}
+A famous modular form of weight 12 is the Discriminant Function. 
+\begin{block}{Discriminant Function}
+$$\Delta(z) = e^{2 \pi i z} \prod_{n=1}^{\infty} (1-e^{2 \pi i n z})^{24}$$
+\end{block}
+\end{frame}
+
+%Fourier Series of Discriminant function%
+\begin{frame}
+\frametitle{Fourier Expansion of Discriminant Function}
+Since the Discriminant function is a modular form, it has a Fourier expansion. The coefficients of the series can be calculated with the Ramanujan tau function $\tau(n)$. \\
+$$\Delta(z) = \sum_{n = 1}^{\infty} \tau(n) e^{2n\pi i z} = e^{2 \pi i z} - 24 e^{4\pi i z} + 252 e^{6 \pi i z} -...$$
+\end{frame}
+
+%Discriminant Function identity%
+\begin{frame}
+\frametitle{Discriminant Function identity}
+Note that $E_4^3 = (1 + 240e^{2\pi i z} + ...)^3 = 1+720e^{2\pi i z}+...$ and $E_6^2 = (1-540e^{2\pi i z}+...)^2 = 1 - 1008 e^{2n\pi i z}+...$ are not scalar multiples of each other. Since $dim(M_12(\Gamma_1)) = 2$, both $E_4^3$ and $E_6^2$ span $M_{12}(\Gamma_1)$, and thus there is a linear combination of them that equal $\Delta(z)$. Since the first term in the Fourier series of $\Delta(z)$ is $e^{2\pi i z}$, it must be some scalar multiple of the difference of  $E_4^3$ and $E_6^2$ (to get rid of the leading one). The first term of $E_4^3 - E_6^2$ is $1728e^{2\pi i z}$, so we need to scale down by $1728$, which will match the first term of $\Delta(z)$ and thus we are done. $\therefore \Delta(z) = \frac{E_4^3 - E_6^2}{1728}$. 
 \end{frame}
 
 \end{document}
