@@ -49,7 +49,7 @@ and $T = \begin{bmatrix}
 0 & 1 \\
 \end{bmatrix}$
 \end{block}
-This simplifies proving a function is a modular form when working with the full modular group because now we only need to check that the desired behavior for composition with Mobius transformations from the matrix group works for the transformations corresponding with $S$ and $T$. That is $S(z)=f(\frac{-1}{z}) = z^kf(z)$ and $T(z)=f(z+1)=f(z)$. Note this means modular forms are periodic and have Fourier series!
+This simplifies proving a function is a modular form when working with the full modular group because now we only need to check that the desired behavior for composition with Mobius transformations from the matrix group works for the transformations corresponding with $S$ and $T$. That is $f(S \cdot z))=f(\frac{-1}{z}) = z^kf(z)$ and $f(T \cdot z)=f(z+1)=f(z)$. Note this means modular forms are periodic and have Fourier series!
 \end{frame}
 
 %Dimension Formula%
@@ -85,7 +85,7 @@ This series converges absolutely for $k>2$.
 \begin{align*}
 & G_k(z+ 1) = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m (z+1) + n)^k} \\
 & = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m z+ m +  n)^k} \\
-& \text{Define } \mu=m+n \ (\text{Note } (m,n) \neq (0,0) \Rightarrow (m, \mu) \neq (0,0)) \\
+& \text{Define } \mu=m+n \ (\text{Note } (m,n) \neq (0,0) \iff (m, \mu) \neq (0,0)) \\
 & =  \sum_{\substack{(m,\mu) \in \mathbb{Z}^2 \\ (m,\mu) \neq (0,0)}}  \frac{1}{(m z+ \mu)^k} = G_k(z)
 \end{align*}
 
@@ -99,7 +99,7 @@ This series converges absolutely for $k>2$.
 \begin{align*}
 &G_k \left( \frac{-1}{z} \right) = \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(m (\frac{-1}{z}) + n)^k} \\
 &= \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{z^k}{(-m + n z)^k} = z^k \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}}  \frac{1}{(-m + n z)^k} \\
-& \text{Define} (\mu, \eta) = (n, -m) (\text{Note} (m,n) \neq (0,0) \Rightarrow (\mu, \eta) \neq (0,0)) \\
+& \text{Define} (\mu, \eta) = (n, -m) (\text{Note} (m,n) \neq (0,0) \iff (\mu, \eta) \neq (0,0)) \\
 & = z^k \sum_{\substack{(\mu, \eta) \in \mathbb{Z}^2 \\ (\mu, \eta) \neq (0,0)}}  \frac{1}{(\mu z + \eta)^k} = z^k G_k(z)
 \end{align*}
 
@@ -134,7 +134,7 @@ $\therefore$ $G_k$ is a modular form for $k > 2$. Moreover, it is a modular form
 \frametitle{Fourier Expansion for Eisenstein Series}
 Since Eisenstein Series for even $k>2$ are modular forms, they have a unique Fourier expansion. 
 \begin{block}{Fourier Definition of Eisenstein Series}
-$$E_k(z) = 1 - \frac{2k}{B_k} \sum_{d,n \geq 1} n^{k-1} e^{nd2\pi iz} $$\\
+$$E_k(z) = 1 - \frac{2k}{B_k} \sum_{d,n \geq 1} n^{k-1} e^{2\pi i dnz} $$\\
 Where $B_k$ is the $k$th Bernoulli number.
 \end{block}
 \end{frame}
@@ -161,14 +161,14 @@ $$\Delta(z) = e^{2 \pi i z} \prod_{n=1}^{\infty} (1-e^{2 \pi i n z})^{24}$$
 %Fourier Series of Discriminant function%
 \begin{frame}
 \frametitle{Fourier Expansion of Discriminant Function}
-Since the Discriminant function is a modular form, it has a Fourier expansion. The coefficients of the series can be calculated with the Ramanujan tau function $\tau(n)$. \\
+Since the Discriminant function is a modular form, it has a Fourier expansion. Ramanujan tau function $\tau(n)$ is defined as the coefficients of the series. \\
 $$\Delta(z) = \sum_{n = 1}^{\infty} \tau(n) e^{2n\pi i z} = e^{2 \pi i z} - 24 e^{4\pi i z} + 252 e^{6 \pi i z} -...$$
 \end{frame}
 
 %Discriminant Function identity%
 \begin{frame}
 \frametitle{Discriminant Function identity}
-Note that $E_4^3 = (1 + 240e^{2\pi i z} + ...)^3 = 1+720e^{2\pi i z}+...$ and $E_6^2 = (1-540e^{2\pi i z}+...)^2 = 1 - 1008 e^{2n\pi i z}+...$ are not scalar multiples of each other. Since $dim(M_12(\Gamma_1)) = 2$, both $E_4^3$ and $E_6^2$ span $M_{12}(\Gamma_1)$, and thus there is a linear combination of them that equal $\Delta(z)$. Since the first term in the Fourier series of $\Delta(z)$ is $e^{2\pi i z}$, it must be some scalar multiple of the difference of  $E_4^3$ and $E_6^2$ (to get rid of the leading one). The first term of $E_4^3 - E_6^2$ is $1728e^{2\pi i z}$, so we need to scale down by $1728$, which will match the first term of $\Delta(z)$ and thus we are done. $\therefore \Delta(z) = \frac{E_4^3 - E_6^2}{1728}$. 
+Note that $E_4^3 = (1 + 240e^{2\pi i z} + ...)^3 = 1+720e^{2\pi i z}+...$ and $E_6^2 = (1-504e^{2\pi i z}+...)^2 = 1 - 1008 e^{2n\pi i z}+...$ are not scalar multiples of each other. Since $dim(M_{12}(\Gamma_1)) = 2$, both $E_4^3$ and $E_6^2$ span $M_{12}(\Gamma_1)$, and thus there is a linear combination of them that equal $\Delta(z)$. Since the first term in the Fourier series of $\Delta(z)$ is $e^{2\pi i z}$, it must be some scalar multiple of the difference of  $E_4^3$ and $E_6^2$ (to get rid of the leading one). The first term of $E_4^3 - E_6^2$ is $1728e^{2\pi i z}$, so we need to scale down by $1728$, which will match the first term of $\Delta(z)$ and thus we are done. $\therefore \Delta(z) = \frac{E_4^3 - E_6^2}{1728}$. 
 \end{frame}
 
 \end{document}
